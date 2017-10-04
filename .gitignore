@@ -1,2 +1,7 @@
 #exclude data from repository
-/data/
+/src/data/*
+!/data/raw/.gitignore
+!/data/external/.gitignore
+!/data/interim/.gitignore
+!/data/processed/.gitignore
+/.idea/workspace.xml
