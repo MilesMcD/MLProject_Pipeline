@@ -4,4 +4,4 @@
 !/data/external/.gitignore
 !/data/interim/.gitignore
 !/data/processed/.gitignore
-/.idea/workspace.xml
+.idea/workspace.xml
