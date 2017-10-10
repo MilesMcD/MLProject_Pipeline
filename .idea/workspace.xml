@@ -24,11 +24,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="environment.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="environment.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/environment.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HW2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Downloads/HW2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -53,12 +63,13 @@
         <option value="$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Chase Shelbourne_444458_assignsubmission_file_/chaseHW2.py" />
         <option value="$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Octavia Smith_444463_assignsubmission_file_/Smith_Octavia CS 108 Hw2.py" />
         <option value="$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Rukudzo Gawa_444466_assignsubmission_file_/hw2.py" />
+        <option value="$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Taylor Jackson_444477_assignsubmission_file_/homework2.py" />
         <option value="$USER_HOME$/Downloads/HW2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="554" />
+    <option name="x" value="528" />
     <option name="y" value="78" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -122,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Smith_Octavia CS 108 Hw2">
+  <component name="RunManager" selected="Python.HW2">
     <configuration default="false" name="download" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,6 +165,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MLProject_Pipeline" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Octavia Smith_444463_assignsubmission_file_/Smith_Octavia CS 108 Hw2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HW2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MLProject_Pipeline" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/HW2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,14 +253,16 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.download" />
       <item index="1" class="java.lang.String" itemvalue="Python.Smith_Octavia CS 108 Hw2" />
+      <item index="2" class="java.lang.String" itemvalue="Python.HW2" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.Smith_Octavia CS 108 Hw2" />
-        <item index="1" class="java.lang.String" itemvalue="Python.download" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.HW2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Smith_Octavia CS 108 Hw2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.download" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +280,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="554" y="78" width="1400" height="1000" extended-state="0" />
+    <frame x="528" y="78" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -320,22 +351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Taylor Jackson_444477_assignsubmission_file_/homework2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/HW2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/download.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -346,10 +361,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Grading/COMP 108 FA17-HW #2-88771/Taylor Jackson_444477_assignsubmission_file_/homework2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/environment.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/HW2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
       </provider>

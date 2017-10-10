@@ -1,3 +1,5 @@
+#We use make to call this command easily. It is currently set to install "iris.csv". The dled file
+#can be altered by changing the target url in that file. C&Ping it & changing url for more files.
 import requests
 import click
 @click.command()
