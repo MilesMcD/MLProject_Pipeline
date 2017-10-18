@@ -6,3 +6,7 @@ dependencies:
 - jupyter
 - requests
 - click
+-openpyxl
+- pip:
+    -watermark
+    -pytest

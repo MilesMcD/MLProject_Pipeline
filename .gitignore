@@ -1,7 +1,21 @@
 #exclude data from repository
-/src/data/*
-!/data/raw/.gitignore
-!/data/external/.gitignore
-!/data/interim/.gitignore
-!/data/processed/.gitignore
+
+/src/data/raw/
+/src/data/external/
+/src/data/interim/
+/src/data/processed/
+/src/reports/figures/
+
+/src/data/raw/**
+/src/data/external/**
+/src/data/interim/**
+/src/data/processed/**
+
+
+
+!/src/data/raw/.gitignore
+!/src/data/external/.gitignore
+!/src/data/interim/.gitignore
+!/src/data/processed/.gitignore
 .idea/workspace.xml
+!/src/reports/figures/.gitignore
