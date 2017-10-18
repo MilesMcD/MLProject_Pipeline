@@ -10,8 +10,11 @@
 /src/data/external/**
 /src/data/interim/**
 /src/data/processed/**
-
-
+/src/models/*.model
+/src/__pycache__/**
+/src/.cache
+/src/data/__pycache__/**
+/src/visualizations/__pycache__/**
 
 !/src/data/raw/.gitignore
 !/src/data/external/.gitignore
