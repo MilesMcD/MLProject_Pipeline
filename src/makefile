@@ -7,7 +7,7 @@ IRIS_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.
 #these are not related to file structure.
 .PHONY: all clean test
 
-all: data/raw/iris.csv reports/figures/exploratory.png data/processed/processed.pickle models/random_forest.model
+all: data/raw/iris.csv reports/figures/exploratory.png data/processed/processed.pickle models/random_forest.model data/processed/processed.pickle data/processed/hapsui.pickle models/hapsui_kmeans.model
 #Note: the '-' before rm will mean clean continues despite errors. Remove these for troubleshooting.
 #WARN: CLEAN CURRENTLY DELETES MODELS. REMOVE FINALIZED MODELS BEFORE CLEANING THE PROJECT.
 clean:
@@ -27,9 +27,14 @@ data/raw/iris.csv:
 reports/figures/exploratory.png: data/processed/processed.pickle
 	python visualizations/exploratory.py $< $@
 data/processed/processed.pickle: data/raw/iris.csv
-	python data/preprocess.py $< $@ --excel data/processed/processed.xlsx
+	python data/preprocess.py --cr cls $< $@ --excel data/processed/processed.xlsx
+#For Happiness/suicide data
+data/processed/hapsui.pickle: data/raw/HappinessAndGiniAndSuicides.xlsb.csv
+	python data/preprocess.py --cr reg $< $@ --excel data/processed/hapsui.xlsx
 models/random_forest.model: data/processed/processed.pickle
-	python models/train_model.py $< $@
+	python models/train_model.py --alg rf $< $@
+models/hapsui_kmeans.model: data/processed/hapsui.pickle
+	python models/train_model.py --alg km $< $@
 
 	
 
