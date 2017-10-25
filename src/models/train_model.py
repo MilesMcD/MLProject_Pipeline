@@ -31,6 +31,7 @@ def main(input_file, output_file, alg):
 #TOTAL CLUSTER COUNT: CHANGE AS NECESSARY
         models = []
         predictions = []
+
         print("scoring models by cluster count: ")
         for i in range(2, 8):
             model = KMeansCluster(i)
@@ -41,6 +42,9 @@ def main(input_file, output_file, alg):
             models.append(model)
         #models[2].save(output_file)
         #create models
+        cluster_4_labels = predictions[3]
+        dframe['labels'] = cluster_4_labels
+        print(dframe[dframe['labels'] == 0])
         kMeansFigures(predictions, models, featureOnly)
 
 if __name__ == '__main__':

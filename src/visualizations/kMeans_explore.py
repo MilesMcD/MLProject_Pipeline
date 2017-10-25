@@ -81,7 +81,7 @@ def kMeansFigures(predictions, kArray, dframe):
 
             #BEGIN PROJECT DATA LABELS
             ax2.set_title("Cluster Visualization")
-            ax2.set_xlabel("Data")
+            ax2.set_xlabel("GINI")
             ax2.set_ylabel("happiness")
             ax2.set_zlabel("suicide rate")
             #END PROJECT DATA LABELS
