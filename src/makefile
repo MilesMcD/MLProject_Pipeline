@@ -40,8 +40,16 @@ models/hapsui_kmeans.model:	data/processed/hapsui.pickle
 #INCOME TAX & SOCIAL INCLUSION
 data/processed/TaxRateGDP.pickle: data/raw/total-tax-revenues-gdp.csv
 	python data/preprocess.py --fixheader=True $< $@ --excel data/processed/TaxRateGDP.xlsx
+data/processed/noInterplSocialInclusion.pickle:	data/raw/online-data-chapter-2-whr-2017.xlsx
+	python data/preprocess.py --fromexcel=0 --multi=True $< $@ --excel data/processed/noInterplSocialInclusion.xlsx
 data/processed/SocialInclusion.pickle: data/raw/online-data-chapter-2-whr-2017.xlsx
-	python data/preprocess.py --fromexcel=0 --multi=True $< $@ --excel data/processed/SocialInclusion.xlsx
+	python data/preprocess.py --fromexcel=0 --multi=True --intrpl=True $< $@ --excel data/processed/SocialInclusion.xlsx
+reports/figures/interpolations.png: data/processed/SocialInclusion.pickle
+	python visualizations/SIP_explorations.py $< $@ --secondfile data/processed/noInterplSocialInclusion.pickle
+data/processed/mergedSet.pickle: data/processed/SocialInclusion.pickle
+	python data/data_joiner.py $< data/processed/TaxRateGDP.xlsx $@ --fromexcel2=0 --excel data/processed/mergedSet.xlsx
 
+data/processed/HappSocGinTax_Interpolated.pickle: data/processed/mergedSet.pickle
+	python data/preprocess.py $< $@ --intrpl=True --preprocessed=True --excel data/processed/HappSocGinTax.xlsx 
 	
 

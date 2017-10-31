@@ -40,7 +40,7 @@ def main(input_file, output_file, alg):
             print(i)
             print(model.score(featureOnly))
             models.append(model)
-        #models[2].save(output_file)
+        models[3].save(output_file)
         #create models
         cluster_4_labels = predictions[3]
         dframe['labels'] = cluster_4_labels
