@@ -40,11 +40,12 @@ def main(input_file, output_file, alg):
             print(i)
             print(model.score(featureOnly))
             models.append(model)
-        models[3].save(output_file)
+        #models[3].save(output_file)
         #create models
         cluster_4_labels = predictions[3]
         dframe['labels'] = cluster_4_labels
-        print(dframe[dframe['labels'] == 0])
+        for i in range(5):
+            print(dframe[dframe['labels'] == i])
         kMeansFigures(predictions, models, featureOnly)
 
 if __name__ == '__main__':

@@ -16,10 +16,11 @@ def kMeansFigures(predictions, kArray, dframe):
     samples = len(dframe.index)
     #NUMBER OF MODELS
     count = len(predictions)
+    print(len(predictions))
     #iterate through predictions array
     iterator = 0
     #CLUSTER IS # OF CLUSTERS
-    for cluster in range(2, count):
+    for cluster in range(2, count+2):
         # SET UP SILHOUETTE PLOT & 3D PLOT
         fig = plt.figure()
         (ax1) = fig.add_subplot(221)

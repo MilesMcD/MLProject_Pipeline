@@ -51,5 +51,7 @@ data/processed/mergedSet.pickle: data/processed/SocialInclusion.pickle
 
 data/processed/HappSocGinTax_Interpolated.pickle: data/processed/mergedSet.pickle
 	python data/preprocess.py $< $@ --intrpl=True --preprocessed=True --excel data/processed/HappSocGinTax.xlsx 
-	
+
+data/processed/HapSocGinTaxDiff.pickle: data/processed/HappSocGinTax_Interpolated.pickle
+	python data/deltatizer.py $< $@ --excel data/processed/HSGTDiffValues.xlsx
 

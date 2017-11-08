@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 Takes a sheet from an excel.
 Specify a sheet number using a based 0 integer in the --fromexcel option.
 """
-def from_excel(dframe, sheet_num):
-        return pd.read_excel(dframe, sheet_num)
+def from_excel(input_file, sheet_num):
+        return pd.read_excel(input_file, sheet_num)
 
 #return features from feature 1 to the last feature before the label. (Classifier)
 def get_features(dframe):
@@ -66,7 +66,7 @@ Processes a dataframe with 2 proposed manners of indexing (for instance, country
 Currently, this function pulls from columns 1 & 2, which is kind of inconvenient except for the main data set of the project (happiness report).
 
 """
-def preprocess_multi_layed_data(dframe):
+def preprocess_multi_layered_data(dframe):
     multif = dframe.set_index([dframe.columns[1], dframe.columns[2]])
     # First we will create a new index from the unique values in the "country" index and the range of years we want.
     # Then we simply reindex it into the data set.
@@ -136,7 +136,7 @@ def main(input_file, output_file, excel, cr, fixheader, fromexcel, multi, intrpl
         dframe = removeInLineHeaders(dframe)
 
     if multi: #Please check Documentation
-        dframe = preprocess_multi_layed_data(dframe)
+        dframe = preprocess_multi_layered_data(dframe)
 
     if intrpl: #Please check Documentation
         dframe = interpolate_dataframe(dframe)
