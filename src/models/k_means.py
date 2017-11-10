@@ -5,7 +5,14 @@ from sklearn.cluster import KMeans
 sys.path.append('..')
 
 from src.data import get_features
+"""
+implementation of the sklearn library's KMeans as an object, so that it can be saved as a model.  
 
+UNFINISHED:
+Random_state is probably set to 69 right now for debugging. Removing this argument will improve performance, but 
+make reproducing results impossible. Remove this state for final analysis.
+
+"""
 #nice
 class KMeansCluster(object):
     def __init__(self, cluster):

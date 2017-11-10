@@ -9,7 +9,13 @@ from mpl_toolkits.mplot3d import Axes3D #this is necessary.
 sys.path.append('..')
 from src.data import read_processed_data
 
-#NEEDS TO BE GENERALIZED
+
+"""
+This script allows visualization of kmeans algorithms with 2 or 3 dimensions. 
+It takes a set of predictions, a set of models, and the dataframe used.
+
+"""
+
 
 def kMeansFigures(predictions, kArray, dframe):
     #DATAFRAME INDEX COUNT
@@ -68,8 +74,9 @@ def kMeansFigures(predictions, kArray, dframe):
         #2D
         if dframe.shape[1] == 2:
             ax2.set_title("Cluster Visualization")
-            ax2.set_xlabel("Data")
-            ax2.set_ylabel("happiness")
+            ax2.set_xlabel(dframe.columns[0])
+            ax2.set_ylabel(dframe.columns[1])
+            colors = cm.spectral(float(i) / cluster)
             #scatter plot: x, y, dot-markker, point size, opacity, spectral color, dot edgecolors.
             ax2.scatter(dframe.iloc[:, 0], dframe.iloc[:, 1], marker='.', s=30, alpha = .69, c=colors, edgecolor='k')
             #show centroids:
@@ -82,9 +89,9 @@ def kMeansFigures(predictions, kArray, dframe):
 
             #BEGIN PROJECT DATA LABELS
             ax2.set_title("Cluster Visualization")
-            ax2.set_xlabel("GINI")
-            ax2.set_ylabel("happiness")
-            ax2.set_zlabel("suicide rate")
+            ax2.set_xlabel(dframe.columns[0])
+            ax2.set_ylabel(dframe.columns[1])
+            ax2.set_zlabel(dframe.columns[2])
             #END PROJECT DATA LABELS
             #dframe[:, 0, 0], dframe[0, :, 0], dframe[0, 0, :]
             colors3D = cm.spectral(predictions[iterator].astype(float) / cluster)

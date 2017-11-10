@@ -6,8 +6,10 @@ from pandas.tools.plotting import scatter_matrix
 import sys
 from scipy.stats import pearsonr
 """
-This function is searching for the two years with the most available 
+This script is searching for the two years with the most available data.
 
+
+UNFINISHED: This script is not yet well documented or generalized.
 """
 
 def from_excel(dframe, sheet_num):
@@ -35,16 +37,17 @@ def main(input_file, output_file, excel, fromexcel):
         dframe = pd.from_excel(input_file, fromexcel)
     else:
         dframe = pd.read_pickle(input_file)
-    #normalize taxrate
+    #Scale data.
     for i in range(2, len(dframe.columns)):
         curr_col = dframe.columns[i]
         dframe[curr_col] = dframe[curr_col].apply(lambda x: (x - dframe[curr_col].mean()) /
                                                                       (dframe[curr_col].max() - dframe[
                                                                           curr_col].min()))
 
-
+    #Drop indices with missing data or 0 slope (bad interpolation)
     dframe_pre = dframe.replace(0, float('nan'))
     dframe_pre = dframe_pre.dropna()
+    #Check Distribution
     dframe_pre.hist()
     #print some info about the pre-differentiated frame.
     # np.set_printoptions(threshold=sys.maxsize)
@@ -55,14 +58,17 @@ def main(input_file, output_file, excel, fromexcel):
     # print(dframe_pre['country'].value_counts()[41:60])
     # print(dframe_pre['country'].value_counts()[61:80])
     # print(dframe_pre['country'].value_counts()[81:104])
-    #plt.show()
+    plt.show()
+    #Examine Correlations.
     scatter_matrix(dframe, alpha=0.2, figsize=(6, 6), diagonal='kde')
-    #plt.show()
+    plt.show()
     #Correlation plot
     rho = dframe_pre.corr()
 
     print("pre-diff correlation:")
     print(rho)
+
+    #DIFFERENCE ANALYSIS HAPPENS BEYOND THIS POINT
 
     #print(calculate_pvalues(dframe_pre))
     #calculate_pvalues(dframe_pre).to_excel("data/processed/HGSTpVal.xlsx")
