@@ -90,5 +90,6 @@ TODO:
 		Add Webscraping & Blob download support to download.py
 
 Citing:
-tutorial: https://medium.com/towards-data-science/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e		
+tutorial: https://medium.com/towards-data-science/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e	
+stripping whitespace & alphabets: https://stackoverflow.com/questions/4071396/split-by-comma-and-strip-whitespace-in-python	
 By Mateusz Bednarski
