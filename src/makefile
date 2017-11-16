@@ -4,7 +4,7 @@
 IRIS_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 TaxRevByGDP_URL = "https://ourworldindata.org/taxation/"
 HappinessDataOverTime_URL = "https://ourworldindata.org/happiness-and-life-satisfaction/"
-#this will remove any raw data csvs.
+
 
 #these are not related to file structure.
 .PHONY: all clean test
@@ -70,12 +70,17 @@ data/processed/HSGT_Averages.pickle: data/processed/HappSocGinTax_Interpolated_N
 	python data/preprocess.py $< $@ --preprocessed=True --getaverages=0 --excel data/processed/HSGT_Averages.xlsx
 models/HSGT_kmeans.model: data/processed/HSGT_Averages.pickle
 	python models/train_model.py --alg km $< $@
-#LETS ADD HAPPINESS INFORMATION
+
+	#LETS ADD HAPPINESS INFORMATION
 data/interim/happinessladder.pickle: data/raw/happiness-cantril-ladder.csv
 	python data/preprocess.py --csvheader=0  --multi="0,2" $< $@ --excel data/interim/happinessladder.xlsx
-	
 data/interim/HapReportHappy.pickle: data/processed/mergedSet.pickle
-	python data/data_joiner.py $< data/interim/happinessladder.pickle $@ --excel data/interim/HapReportHappy.xlsx
-	
-data/processed/HapReportHappy_Interp.pickle: data/interim/HapReportHappy.pickle
+	python data/data_joiner.py $< data/interim/happinessladder.pickle $@ --excel data/interim/HapReportHappy.xlsx	
+data/interim/HapReportHappy_Interp.pickle: data/interim/HapReportHappy.pickle
 	python data/preprocess.py $< $@ --intrpl=True --preprocessed=True --excel data/processed/HapReportHappy_Interp.xlsx 
+data/interim/SatSocGinTax_Trimmed.pickle: data/interim/HapReportHappy_Interp.pickle
+	python data/data_selector.py $< $@ 2 3 4 6 --trimcat=True --trimna=True --excel data/interim/SatSocGinTax_Trimmed.xlsx
+data/processed/SatSocGinTaxNorm_Final.pickle: data/interim/SatSocGinTax_Trimmed.pickle
+	python data/preprocess.py $< $@ --preprocessed=True --normalize=True  --excel data/processed/SatSocGinTaxNorm_Final.xlsx
+models/SatSocGinTaxSVR.model: data/processed/SatSocGinTaxNorm_Final.pickle
+	python models/train_model.py --alg svr $< $@

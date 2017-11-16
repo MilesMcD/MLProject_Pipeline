@@ -49,7 +49,6 @@ def main(input_file, input_file2, output_file, excel, fromexcel, fromexcel2):
     if fromexcel > -1:
         dframe = from_excel(input_file, fromexcel)
     else:
-        print(input_file)
         dframe = read_processed_data(input_file)
     if fromexcel2 > -1:
         dframe2 = from_excel(input_file2, fromexcel)

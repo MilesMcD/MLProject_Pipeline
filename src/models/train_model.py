@@ -2,6 +2,7 @@ import click
 #same directory import
 from random_forest import RandomForestModel
 from k_means    import  KMeansCluster
+from svm_regression import svm_regressor
 from sklearn.model_selection import train_test_split
 import sys
 
@@ -23,15 +24,25 @@ A model with X number of clusters must manually be entered into the code at the 
 @click.argument('input_file', type=click.Path(exists=True, readable=True, dir_okay=False))
 @click.argument('output_file', type=click.Path(writable=True, dir_okay=False))
 @click.option('--alg', default="km")
-#Use --alg "rf" for random forest or "km" for k-means
+#Use --alg "rf" for random forest, "svr" for support vector regression, or "km" for k-means
 def main(input_file, output_file, alg):
     print('Training a model')
     if alg == "rf":
         dframe = read_processed_data(input_file)
         featureSet, labelSet = train_test_split(dframe[:, :-1], dframe[:, -1:])
         model = RandomForestModel()
-        model.train(dframe)
+        model.train(featureSet)
+        model.score(labelSet)
         model.save(output_file)
+        #trained.save(output_file)
+    if alg == "svr":
+        #split data into training and testing sets.
+        dframe = read_processed_data(input_file)
+        train_set, test_set = train_test_split(dframe)
+        model = svm_regressor()
+        model.train(train_set)
+        print(model.score(test_set))
+        # trained.save(output_file)
     #reasoning behind this: https://stats.stackexchange.com/questions/9850/how-to-plot-data-output-of-clustering
     if alg == "km":
         dframe = read_processed_data(input_file)

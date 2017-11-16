@@ -63,12 +63,15 @@ TODO:
 		Improve Preprocess interpolation functions
 			Something better than linear interpolation
 			Back fill(?)
+			Consider just imputing mean values from the set (?)
 		
 	2. Documentation
 		At Method & Script Level
 		
 		Basic Project flow for developing Data Sets. (In Readme)
-
+	
+	3. Implement better tuning functionality for our learning algorithms.
+	
 	FRIDAY: 
 		Literature to read
 		https://www.econstor.eu/bitstream/10419/26439/1/577841831.PDF

@@ -1,6 +1,8 @@
 import click
 import numpy as np
 import pandas as pd
+from scipy.stats import zscore
+from sklearn import preprocessing
 import matplotlib.pyplot as plt
 #USE --EXCEL AFTER CALL TO GET CSV IN THAT FORMAT. STANDARD IN MAKEFILE.
 
@@ -149,8 +151,11 @@ def dropNA(dframe):
 
 @click.option('--preprocessed', default=False)#Set True if dataset is coming in from a pickle file.
 
+@click.option('--normalize', default=False)#Set to True to zscore all numeric columns.
+
 @click.option('--getaverages', default=-1) #group by a column. Zero base. Returns mean values for each country.
-def main(input_file, output_file, excel, cr, fixheader, fromexcel, multi, intrpl, dropna, preprocessed, getaverages, csvheader):
+
+def main(input_file, output_file, excel, cr, fixheader, fromexcel, multi, intrpl, dropna, preprocessed, normalize, getaverages, csvheader):
     print('Preprocessing data')
     if fromexcel > -1:
         dframe = from_excel(input_file, fromexcel)
@@ -176,10 +181,23 @@ def main(input_file, output_file, excel, cr, fixheader, fromexcel, multi, intrpl
 
     if intrpl: #Please check Documentation
         dframe = interpolate_dataframe(dframe)
+
     if dropna:
         dframe = dropNA(dframe)
+
+    if normalize:
+        # Scale data.
+        numeric_cols = dframe.select_dtypes(include=[np.number]).columns
+        dframe = dframe[numeric_cols].apply(zscore)
+        """
+        for i in range(normalize, len(dframe.columns)):
+            curr_col = dframe.columns[i]
+            dframe[curr_col] = dframe[curr_col].apply(lambda x: 2 * ((x - dframe[curr_col].min()) /
+                                                                          (dframe[curr_col].max() - dframe[
+                                                                       curr_col].min())) - 1)
+        """
     if getaverages > -1:
-        dframe = dframe.drop(["year"], axis=1)
+        #dframe = dframe.drop(["year"], axis=1) USE THIS IF IT WOULD BE CONVENIENT TO REMOVE A COLUMN.
         grouped = dframe.groupby(dframe.columns[getaverages])
         dframe = grouped.mean()
 

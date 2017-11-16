@@ -37,12 +37,7 @@ def main(input_file, output_file, excel, fromexcel):
         dframe = pd.from_excel(input_file, fromexcel)
     else:
         dframe = pd.read_pickle(input_file)
-    #Scale data.
-    for i in range(2, len(dframe.columns)):
-        curr_col = dframe.columns[i]
-        dframe[curr_col] = dframe[curr_col].apply(lambda x: (x - dframe[curr_col].mean()) /
-                                                                      (dframe[curr_col].max() - dframe[
-                                                                          curr_col].min()))
+
 
     #Drop indices with missing data or 0 slope (bad interpolation)
     dframe_pre = dframe.replace(0, float('nan'))
